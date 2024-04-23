@@ -4,6 +4,63 @@
         <meta charset="UTF-8">
         <meta name = "viewport" content = "width=device width, initial-scale = 1.0"/>
         <link rel = "stylesheet" href = "men.css"/>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const addCardBtns = document.querySelectorAll('.btncard');
+                const cart = [];
+                const cartContainer = document.getElementById('cart-items');
+    
+                addCardBtns.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const item = button.parentElement.querySelector('.brand').innerText;
+                        addToCart(item);
+                        displayCart();
+                    });
+                });
+    
+                function addToCart(item) {
+                    cart.push(item);
+                    alert("Added to cart");
+                }
+    
+                function displayCart() {
+                    cartContainer.innerHTML = ""; // Clearing previous content
+                    cart.forEach((item, index) => {
+                        const cartItem = document.createElement('div');
+                        cartItem.textContent = `${index + 1}. ${item}`;
+                        cartContainer.appendChild(cartItem);
+                    });
+                }
+            });
+        </script><script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addCardBtns = document.querySelectorAll('.btncard');
+            const cart = [];
+            const cartContainer = document.getElementById('cart-items');
+
+            addCardBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.parentElement.querySelector('.brand').innerText;
+                    addToCart(item);
+                    displayCart();
+                });
+            });
+
+            function addToCart(item) {
+                cart.push(item);
+                alert("Added to cart");
+            }
+
+            function displayCart() {
+                cartContainer.innerHTML = ""; // Clearing previous content
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.textContent = `${index + 1}. ${item}`;
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+        });
+    </script>
     </head>
     <body>
         <section class = "stuff">
